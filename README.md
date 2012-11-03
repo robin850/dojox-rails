@@ -42,4 +42,4 @@ For issues and bugs, please open a [new ticket](https://github.com/robin850/dojo
 
 ## License
 
-This project is released under the MIT license. See the `LICENSE` file for more information.
+This project is released under the MIT license. See the `LICENSE` file for more information. Dojo Toolkit is available under either the terms of the modified BSD license or the Academic Free License version 2.1. Please see the `DOJO_LICENSE` file or [visit the official page](http://dojotoolkit.org/license) for more information.
