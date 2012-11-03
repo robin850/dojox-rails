@@ -4,14 +4,11 @@ This gem allows you to use the Dojox library (which is part of the [dojo toolkit
 
 ## Installation and basic use
 
-Just open up your application's `Gemfile` and add the following lines (commonly to your `:assets` group):
+Just open up your application's `Gemfile` and add the following lines:
 
 ```ruby
-group :assets do
-  # ...
-  gem 'dojo-rails'
-  gem 'dojox-rails'
-end
+gem 'dojo-rails'
+gem 'dojox-rails'
 ```
 
 Just run the `bundle` command to install the gems. Then, in your javascript files just use the `require` function and load your Dojox assets just like that (here a gist with CoffeeScript):
