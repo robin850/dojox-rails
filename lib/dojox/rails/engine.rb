@@ -1,4 +1,4 @@
-module Dijit
+module Dojox
   module Rails
     class Engine < ::Rails::Engine
     end
