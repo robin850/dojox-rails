@@ -1,2 +1,2 @@
 require "dojox/rails/engine"
-require "dojo/rails/version"
+require "dojox/rails/version"
