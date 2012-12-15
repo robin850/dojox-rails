@@ -1,4 +1,4 @@
-# Dojox-rails 0.12.0 (unreleased)
+# Dojox-rails 0.12.0
 
 * Fix a bad example in the README file
 * Inconsistent module names (pgn84)
