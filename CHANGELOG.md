@@ -1,4 +1,6 @@
-# Version 0.13.0 (unreleased)
+# Version 0.13.0
+
+* Fix a bad require statement
 
 # Version 0.12.0
 

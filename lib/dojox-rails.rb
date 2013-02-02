@@ -1,4 +1,4 @@
-require "dojox-rails/version"
+require "dojox/rails/version"
 
 module Dojox
   module Rails
