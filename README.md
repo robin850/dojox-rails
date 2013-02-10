@@ -14,9 +14,8 @@ gem 'dojox-rails'
 Just run the `bundle` command to install the gems. Then, in your javascript files just use the `require` function and load your Dojox assets just like that (here a gist with CoffeeScript):
 
 ```coffeescript
-require(["dojox/charting/Chart", "dojox/charting/themes/Claro"], (chart, theme) ->
+require ["dojox/charting/Chart", "dojox/charting/themes/Claro"], (chart, theme) ->
   # ... Here is your code
-)
 ```
 ## Usage with Asset Pipeline in Production
 
