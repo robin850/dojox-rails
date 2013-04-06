@@ -1,6 +1,12 @@
 # Dojox with Rails
 
-This gem allows you to use the Dojox library (which is part of the [dojo toolkit](http://dojotoolkit.org/)) with the cool Ruby on Rails framework. See also [dojo-rails](https://github.com/robin850/dojo-rails) and [dijit-rails](https://github.com/robin850/dijit-rails) if you are a Dojo fan.
+This gem allows you to use the Dojox library (which is part of the 
+[dojo toolkit](http://dojotoolkit.org/)) with the cool Ruby on Rails framework.
+This project is divided into three gems:
+
+* [dojo-rails](https://github.com/robin850/dojo-rails)
+* [dijit-rails](https://github.com/robin850/dijit-rails)
+* **dojox-rails**
 
 ## Installation and basic use
 
@@ -11,7 +17,9 @@ gem 'dojo-rails'
 gem 'dojox-rails'
 ```
 
-Just run the `bundle` command to install the gems. Then, in your javascript files just use the `require` function and load your Dojox assets just like that (here a gist with CoffeeScript):
+Just run the `bundle` command to install the gems. Then, in your javascript 
+files just use the `require` function and load your Dojox assets just like that
+(here a gist with CoffeeScript):
 
 ```coffeescript
 require ["dojox/charting/Chart", "dojox/charting/themes/Claro"], (chart, theme) ->
@@ -19,21 +27,12 @@ require ["dojox/charting/Chart", "dojox/charting/themes/Claro"], (chart, theme) 
 ```
 ## Usage with Asset Pipeline in Production
 
-To use with production and asset pipeline from Rails 3.1 you will need to have the [djConfig](http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/) hash set before you load the dojo/dojo library
+To use with production and asset pipeline from Rails 3.1 you will need to have
+the [dojoConfig](http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/)
+hash set before you load the dojo/dojo library
 
-*This is critical for production mode because otherwise the require[ ] statements will not load libraries correctly*
-
-Example contents of application.js
-```coffeescript
-//= require dojo_config
-//= require dojo/dojo
-```
-Contents of dojo_config.js
-```javascript
-dojoConfig = {
-  baseUrl: '/assets/dojo/'
-};
-```
+Please see the [dedicated page on the wiki](https://github.com/robin850/dojo-rails/wiki/Configuration-with-dojoConfig)
+for further information on this variable.
 
 ## Contributing
 
