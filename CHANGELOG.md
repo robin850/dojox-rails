@@ -1,5 +1,7 @@
 # Version 0.14.0 (unreleased) 
 
+* Fix include for dojox (sjerman)
+
 # Version 0.13.0
 
 * Fix a bad require statement
