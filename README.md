@@ -1,6 +1,6 @@
 # Dojox with Rails
 
-This gem allows you to use the Dojox library (which is part of the 
+This gem allows you to use the Dojox library (which is part of the
 [dojo toolkit](http://dojotoolkit.org/)) with the cool Ruby on Rails framework.
 This project is divided into three gems:
 
@@ -17,7 +17,7 @@ gem 'dojo-rails'
 gem 'dojox-rails'
 ```
 
-Just run the `bundle` command to install the gems. Then, in your javascript 
+Just run the `bundle` command to install the gems. Then, in your javascript
 files just use the `require` function and load your Dojox assets just like that
 (here a gist with CoffeeScript):
 
@@ -44,7 +44,7 @@ If you want to improve the project or fix something you just have to:
 * Clone the repository on your local machine
 * Create a new branch with `git checkout -b new_feature`
 * Make changes and commit them
-* `git push origin master`
+* `git push origin new_feature`
 * And finally open a new pull request on this repo
 
 ### Bugs and issues
@@ -72,5 +72,5 @@ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
 THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
