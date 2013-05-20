@@ -1,9 +1,9 @@
 module Dojox
-	module Rails
-		MAJOR = 0
-		MINOR = 14
-		TINY = 0
+  module Rails
+    MAJOR = 1
+    MINOR = 0
+    TINY = 0
 
-		VERSION = [MAJOR, MINOR, TINY].compact.join(".")
-	end
+    VERSION = [MAJOR, MINOR, TINY].compact.join(".")
+  end
 end
