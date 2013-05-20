@@ -1,38 +1,36 @@
 # Dojox with Rails
 
-This gem allows you to use the Dojox library (which is part of the
-[dojo toolkit](http://dojotoolkit.org/)) with the cool Ruby on Rails framework.
-This project is divided into three gems:
+This gem allows you to use the Dojox library (which is part of the [dojo toolkit])
+with Ruby on Rails. This project is divided into three gems:
 
-* [dojo-rails](https://github.com/robin850/dojo-rails)
-* [dijit-rails](https://github.com/robin850/dijit-rails)
+* [dojo-rails]
+* [dijit-rails]
 * **dojox-rails**
 
 ## Installation and basic use
 
 Just open up your application's `Gemfile` and add the following lines:
 
-```ruby
-gem 'dojo-rails'
-gem 'dojox-rails'
-```
+~~~ruby
+gem 'dojo-rails', '~> 0.14.0'
+gem 'dojox-rails', '~> 0.14.0'
+~~~
 
-Just run the `bundle` command to install the gems. Then, in your javascript
-files just use the `require` function and load your Dojox assets just like that
-(here a gist with CoffeeScript):
+Just run the `bundle` command to install the gems. You don't specially have to
+add the `dojo-rails` gem to your bundle ; you can rely on a CDN or whatever.
+Then, in your javascript files just use the `require` directive and load your
+Dojox assets just like that (here's a gist with CoffeeScript):
 
-```coffeescript
+~~~coffeescript
 require ["dojox/charting/Chart", "dojox/charting/themes/Claro"], (chart, theme) ->
-  # ... Here is your code
-```
+  # Here goes your code
+~~~
+
 ## Usage with Asset Pipeline in Production
 
 To use with production and asset pipeline from Rails 3.1 you will need to have
-the [dojoConfig](http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/)
-hash set before you load the dojo/dojo library
-
-Please see the [dedicated page on the wiki](https://github.com/robin850/dojo-rails/wiki/Configuration-with-dojoConfig)
-for further information on this variable.
+the [dojoConfig] hash set before you load the dojo/dojo library. Please see the
+[dedicated page on the wiki][wiki] for further information on this variable.
 
 ## Contributing
 
@@ -49,11 +47,14 @@ If you want to improve the project or fix something you just have to:
 
 ### Bugs and issues
 
-For issues and bugs, please open a [new ticket](https://github.com/robin850/dojox-rails/issues/new) to the issue tracker. Thanks.
+For issues and bugs, please open a [new ticket] to the issue tracker. Thanks!
+
 
 ## License
 
-This project is released under the MIT license. Dojo Toolkit is available under either the terms of the modified BSD license or the Academic Free License version 2.1. Please [visit the official page](http://dojotoolkit.org/license) for further information.
+This project is released under the MIT license. Dojo Toolkit is available under
+either the terms of the modified BSD license or the Academic Free License version
+2.1. Please [visit the official page][license] for further information.
 
 Copyright (c) 2012 Robin Dupret
 
@@ -74,3 +75,11 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
+
+[dojo toolkit]: http://dojotoolkit.org/
+[dojo-rails]: https://github.com/robin850/dojo-rails
+[dijit-rails]: https://github.com/robin850/dijit-rails
+[dojoConfig]: http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/
+[wiki]: https://github.com/robin850/dojo-rails/wiki/Configuration-with-dojoConfig
+[new ticket]: https://github.com/robin850/dojox-rails/issues/new
+[license]: http://dojotoolkit.org/license
