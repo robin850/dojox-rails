@@ -364,6 +364,7 @@ var _35={},_36=new Function;
 sl.Surface=_3("dojox.gfx.silverlight.Surface",gs.Surface,{constructor:function(){
 gs.Container._init.call(this);
 },destroy:function(){
+this.clear(true);
 window[this._onLoadName]=_36;
 delete _35[this._nodeName];
 this.inherited(arguments);
@@ -542,6 +543,9 @@ return ev;
 };
 var _50={onclick:{name:"MouseLeftButtonUp",fix:_4c},onmouseenter:{name:"MouseEnter",fix:_4c},onmouseleave:{name:"MouseLeave",fix:_4c},onmouseover:{name:"MouseEnter",fix:_4c},onmouseout:{name:"MouseLeave",fix:_4c},onmousedown:{name:"MouseLeftButtonDown",fix:_4c},onmouseup:{name:"MouseLeftButtonUp",fix:_4c},onmousemove:{name:"MouseMove",fix:_4c},onkeydown:{name:"KeyDown",fix:_4f},onkeyup:{name:"KeyUp",fix:_4f}};
 var _51={connect:function(_52,_53,_54){
+if(_52.indexOf("mouse")===0){
+_52="on"+_52;
+}
 var _55,n=_52 in _50?_50[_52]:{name:_52,fix:function(){
 return {};
 }};

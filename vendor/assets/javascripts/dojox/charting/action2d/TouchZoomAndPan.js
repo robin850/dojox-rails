@@ -34,11 +34,11 @@ this._uName="touchZoomPan"+this.axis;
 this.connect();
 },connect:function(){
 this.inherited(arguments);
-if(_4("safari")&&this.chart.surface.declaredClass.indexOf("svg")!=-1){
+if(_4("ios")&&this.chart.surface.declaredClass.indexOf("svg")!=-1){
 this.chart.addPlot(this._uName,{type:_9});
 }
 },disconnect:function(){
-if(_4("safari")&&this.chart.surface.declaredClass.indexOf("svg")!=-1){
+if(_4("ios")&&this.chart.surface.declaredClass.indexOf("svg")!=-1){
 this.chart.removePlot(this._uName);
 }
 this.inherited(arguments);

@@ -177,7 +177,7 @@ console.error("Unable to insert child in GridContainer",e);
 }
 },_insertChild:function(_36,_37,p){
 var _38=this._grid[_37].node,_39=_38.childNodes.length;
-if(typeof (p)==undefined||p>_39){
+if(typeof p==="undefined"||p>_39){
 p=_39;
 }
 if(this._disabled){

@@ -538,7 +538,7 @@ this._layoutBgItems(_5f,_60,_61,end,_64);
 }
 },_dateToYCoordinate:function(_66,d,_67){
 var pos=0;
-if(_67){
+if(_67||d.getHours()!=0||d.getMinutes()!=0){
 pos=(d.getDate()-1)*this.renderData.daySize;
 }else{
 var d2=this._waDojoxAddIssue(d,"day",-1);

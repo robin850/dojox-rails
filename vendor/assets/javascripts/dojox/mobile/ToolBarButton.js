@@ -19,6 +19,9 @@ _4.add(this.domNode,"mblToolBarButtonHas"+(this.arrow==="left"?"Left":"Right")+"
 }
 this.bodyNode=_5.create("span",{className:"mblToolBarButtonBody"},this.domNode);
 this.tableNode=_5.create("table",{cellPadding:"0",cellSpacing:"0",border:"0"},this.bodyNode);
+if(!this.label&&this.arrow){
+this.tableNode.className="mblToolBarButtonText";
+}
 var _9=this.tableNode.insertRow(-1);
 this.iconParentNode=_9.insertCell(-1);
 this.labelNode=_9.insertCell(-1);
@@ -37,7 +40,8 @@ this._keydownHandle=this.connect(this.domNode,"onkeydown","_onClick");
 this.inherited(arguments);
 if(!this._isOnLine){
 this._isOnLine=true;
-this.set("icon",this.icon);
+this.set("icon",this._pendingIcon!==undefined?this._pendingIcon:this.icon);
+delete this._pendingIcon;
 }
 },_onClick:function(e){
 if(e&&e.type==="keydown"&&e.keyCode!==13){
@@ -50,7 +54,7 @@ this.defaultClickAction(e);
 },onClick:function(){
 },_setLabelAttr:function(_a){
 this.inherited(arguments);
-_4.toggle(this.tableNode,"mblToolBarButtonText",_a);
+_4.toggle(this.tableNode,"mblToolBarButtonText",_a||this.arrow);
 },_setSelectedAttr:function(_b){
 var _c=function(_d,a,b){
 _4.replace(_d,a+" "+a+"45",b+" "+b+"45");

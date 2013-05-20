@@ -142,21 +142,37 @@ if(_2["mblAlwaysHideAddressBar"]===true){
 f=dm.hideAddressBar;
 }
 }
-if(_a("android")&&_5.global.onorientationchange!==undefined){
-var _18=f;
+var _18=_a("iphone")>=6;
+if((_a("android")||_18)&&_5.global.onorientationchange!==undefined){
+var _19=f;
+var _1a,_1b,_1c;
+if(_18){
+_1b=_5.doc.documentElement.clientWidth;
+_1c=_5.doc.documentElement.clientHeight;
+}else{
 f=function(evt){
-var _19=_3.connect(null,"onresize",null,function(e){
-_3.disconnect(_19);
-_18(e);
+var _1d=_3.connect(null,"onresize",null,function(e){
+_3.disconnect(_1d);
+_19(e);
 });
 };
-var _1a=dm.getScreenSize();
-_3.connect(null,"onresize",null,function(e){
-var _1b=dm.getScreenSize();
-if(_1b.w==_1a.w&&Math.abs(_1b.h-_1a.h)>=100){
-_18(e);
+_1a=dm.getScreenSize();
 }
-_1a=_1b;
+_3.connect(null,"onresize",null,function(e){
+if(_18){
+var _1e=_5.doc.documentElement.clientWidth,_1f=_5.doc.documentElement.clientHeight;
+if(_1e==_1b&&_1f!=_1c){
+_19(e);
+}
+_1b=_1e;
+_1c=_1f;
+}else{
+var _20=dm.getScreenSize();
+if(_20.w==_1a.w&&Math.abs(_20.h-_1a.h)>=100){
+_19(e);
+}
+_1a=_20;
+}
 });
 }
 _3.connect(null,_5.global.onorientationchange!==undefined?"onorientationchange":"onresize",null,f);

@@ -21,6 +21,9 @@ _1b.style.left=w*dir+"px";
 _1b.style.display="";
 _1d=fx.combine([s1,s2]);
 _3.connect(_1d,"onEnd",this,function(){
+if(!this._inProgress){
+return;
+}
 _1a.style.display="none";
 _1a.style.left="0px";
 _1b.style.position="relative";
@@ -42,6 +45,9 @@ _1b.style.left="0px";
 _1b.style.display="";
 _1d=fx.combine([s1,s2]);
 _3.connect(_1d,"onEnd",this,function(){
+if(!this._inProgress){
+return;
+}
 _1a.style.display="none";
 _1b.style.position="relative";
 this.invokeCallback();
@@ -53,6 +59,9 @@ _1d=xfx.flip({node:_1a,dir:"right",depth:0.5,duration:400});
 _1b.style.position="absolute";
 _1b.style.left="0px";
 _3.connect(_1d,"onEnd",this,function(){
+if(!this._inProgress){
+return;
+}
 _1a.style.display="none";
 _1b.style.position="relative";
 _1b.style.display="";
@@ -66,6 +75,9 @@ _1b.style.left="0px";
 _1b.style.display="";
 _b.set(_1b,"opacity",0);
 _3.connect(_1d,"onEnd",this,function(){
+if(!this._inProgress){
+return;
+}
 _1a.style.display="none";
 _1b.style.position="relative";
 _b.set(_1a,"opacity",1);

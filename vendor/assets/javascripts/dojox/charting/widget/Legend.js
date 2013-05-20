@@ -1,6 +1,5 @@
 //>>built
 define("dojox/charting/widget/Legend",["dojo/_base/lang","dojo/_base/declare","dijit/_WidgetBase","dojox/gfx","dojo/_base/array","dojox/lang/functional","dojox/lang/functional/array","dojox/lang/functional/fold","dojo/dom","dojo/dom-construct","dojo/dom-class","dijit/registry"],function(_1,_2,_3,_4,_5,df,_6,_7,_8,_9,_a,_b){
-var _c=/\.(StackedColumns|StackedAreas|ClusteredBars)$/;
 return _2("dojox.charting.widget.Legend",_3,{chartRef:"",horizontal:true,swatchSize:18,legendBody:null,postCreate:function(){
 if(!this.chart&&this.chartRef){
 this.chart=_b.byId(this.chartRef)||_b.byNode(_8.byId(this.chartRef));
@@ -12,6 +11,13 @@ this.refresh();
 },buildRendering:function(){
 this.domNode=_9.create("table",{role:"group","aria-label":"chart legend","class":"dojoxLegendNode"});
 this.legendBody=_9.create("tbody",null,this.domNode);
+this.inherited(arguments);
+},destroy:function(){
+if(this._surfaces){
+_5.forEach(this._surfaces,function(_c){
+_c.destroy();
+});
+}
 this.inherited(arguments);
 },refresh:function(){
 if(this._surfaces){
@@ -46,9 +52,6 @@ this._addLabel(t.dyn[i],x.legend||x.text||x.y);
 },this);
 }
 }else{
-if(this._isReversal()){
-s=s.slice(0).reverse();
-}
 _5.forEach(s,function(x){
 this._addLabel(x.dyn,x.legend||x.name);
 },this);
@@ -92,9 +95,5 @@ _14.createLine({x1:2,y1:2,x2:mb.w-2,y2:mb.h-2}).setStroke("black");
 _14.createLine({x1:2,y1:mb.h-2,x2:mb.w-2,y2:2}).setStroke("black");
 }
 }
-},_isReversal:function(){
-return (!this.horizontal)&&_5.some(this.chart.stack,function(_16){
-return _c.test(_16.declaredClass);
-});
 }});
 });

@@ -15,6 +15,7 @@ case "silverlight":
 g.isSilverlight=true;
 break;
 case "canvas":
+case "canvasWithEvents":
 g.isCanvas=true;
 break;
 }

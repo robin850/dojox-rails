@@ -115,7 +115,7 @@ _18=parseInt(_18,10)+2;
 }else{
 var _19=_14.parentNode;
 var _1a=-100000;
-while(_19&&_19!==_c.body()){
+while(_19&&_19!==_c.body()&&_14!==_c.body()){
 zi=_a.get(_19,"zIndex");
 if(!zi||zi==="auto"){
 _19=_19.parentNode;
@@ -309,7 +309,7 @@ if(this.target===_c.body()||this.target===_c.doc){
 this._overflowDisabled=true;
 var _37=_c.body();
 if(_37.style&&_37.style.overflow){
-this._oldOverflow=_a.set(_37,"overflow");
+this._oldOverflow=_a.get(_37,"overflow");
 }else{
 this._oldOverflow="";
 }
@@ -318,7 +318,7 @@ if(_37.parentNode&&_37.parentNode.style&&_37.parentNode.style.overflow){
 this._oldBodyParentOverflow=_37.parentNode.style.overflow;
 }else{
 try{
-this._oldBodyParentOverflow=_a.set(_37.parentNode,"overflow");
+this._oldBodyParentOverflow=_a.get(_37.parentNode,"overflow");
 }
 catch(e){
 this._oldBodyParentOverflow="scroll";
