@@ -34,21 +34,8 @@ the [dojoConfig] hash set before you load the dojo/dojo library. Please see the
 
 ## Contributing
 
-### Code
-
-If you want to improve the project or fix something you just have to:
-
-* Fork the project
-* Clone the repository on your local machine
-* Create a new branch with `git checkout -b new_feature`
-* Make changes and commit them
-* `git push origin new_feature`
-* And finally open a new pull request on this repo
-
-### Bugs and issues
-
-For issues and bugs, please open a [new ticket] to the issue tracker. Thanks!
-
+Please see the [contribution guideline] of the project if you want to contribute!
+Thanks :heart:!
 
 ## License
 
@@ -81,5 +68,5 @@ DEALINGS IN THE SOFTWARE.
 [dijit-rails]: https://github.com/robin850/dijit-rails
 [dojoConfig]: http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/
 [wiki]: https://github.com/robin850/dojo-rails/wiki/Configuration-with-dojoConfig
-[new ticket]: https://github.com/robin850/dojox-rails/issues/new
 [license]: http://dojotoolkit.org/license
+[contribution guideline]: https://github.com/robin850/dojo-rails/wiki/Contributing
