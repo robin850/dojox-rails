@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Dojox with Ruby on Rails}
   gem.summary       = %q{Dojox with Ruby on Rails}
   gem.homepage      = "https://github.com/robin850/dojox-rails"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($\)
   gem.name          = "dojox-rails"
