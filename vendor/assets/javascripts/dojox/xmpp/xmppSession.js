@@ -1,26 +1,26 @@
 //>>built
-define("dojox/xmpp/xmppSession",["dijit","dojo","dojox","dojo/require!dojox/xmpp/TransportSession,dojox/xmpp/RosterService,dojox/xmpp/PresenceService,dojox/xmpp/UserService,dojox/xmpp/ChatService,dojox/xmpp/sasl"],function(_1,_2,_3){
-_2.provide("dojox.xmpp.xmppSession");
-_2.require("dojox.xmpp.TransportSession");
-_2.require("dojox.xmpp.RosterService");
-_2.require("dojox.xmpp.PresenceService");
-_2.require("dojox.xmpp.UserService");
-_2.require("dojox.xmpp.ChatService");
-_2.require("dojox.xmpp.sasl");
+define("dojox/xmpp/xmppSession",["dojo","dijit","dojox","dojo/require!dojox/xmpp/TransportSession,dojox/xmpp/RosterService,dojox/xmpp/PresenceService,dojox/xmpp/UserService,dojox/xmpp/ChatService,dojox/xmpp/sasl"],function(_1,_2,_3){
+_1.provide("dojox.xmpp.xmppSession");
+_1.require("dojox.xmpp.TransportSession");
+_1.require("dojox.xmpp.RosterService");
+_1.require("dojox.xmpp.PresenceService");
+_1.require("dojox.xmpp.UserService");
+_1.require("dojox.xmpp.ChatService");
+_1.require("dojox.xmpp.sasl");
 _3.xmpp.xmpp={STREAM_NS:"http://etherx.jabber.org/streams",CLIENT_NS:"jabber:client",STANZA_NS:"urn:ietf:params:xml:ns:xmpp-stanzas",SASL_NS:"urn:ietf:params:xml:ns:xmpp-sasl",BIND_NS:"urn:ietf:params:xml:ns:xmpp-bind",SESSION_NS:"urn:ietf:params:xml:ns:xmpp-session",BODY_NS:"http://jabber.org/protocol/httpbind",XHTML_BODY_NS:"http://www.w3.org/1999/xhtml",XHTML_IM_NS:"http://jabber.org/protocol/xhtml-im",INACTIVE:"Inactive",CONNECTED:"Connected",ACTIVE:"Active",TERMINATE:"Terminate",LOGIN_FAILURE:"LoginFailure",INVALID_ID:-1,NO_ID:0,error:{BAD_REQUEST:"bad-request",CONFLICT:"conflict",FEATURE_NOT_IMPLEMENTED:"feature-not-implemented",FORBIDDEN:"forbidden",GONE:"gone",INTERNAL_SERVER_ERROR:"internal-server-error",ITEM_NOT_FOUND:"item-not-found",ID_MALFORMED:"jid-malformed",NOT_ACCEPTABLE:"not-acceptable",NOT_ALLOWED:"not-allowed",NOT_AUTHORIZED:"not-authorized",SERVICE_UNAVAILABLE:"service-unavailable",SUBSCRIPTION_REQUIRED:"subscription-required",UNEXPECTED_REQUEST:"unexpected-request"}};
 _3.xmpp.xmppSession=function(_4){
 this.roster=[];
 this.chatRegister=[];
 this._iqId=Math.round(Math.random()*1000000000);
-if(_4&&_2.isObject(_4)){
-_2.mixin(this,_4);
+if(_4&&_1.isObject(_4)){
+_1.mixin(this,_4);
 }
 this.session=new _3.xmpp.TransportSession(_4);
-_2.connect(this.session,"onReady",this,"onTransportReady");
-_2.connect(this.session,"onTerminate",this,"onTransportTerminate");
-_2.connect(this.session,"onProcessProtocolResponse",this,"processProtocolResponse");
+_1.connect(this.session,"onReady",this,"onTransportReady");
+_1.connect(this.session,"onTerminate",this,"onTransportTerminate");
+_1.connect(this.session,"onProcessProtocolResponse",this,"processProtocolResponse");
 };
-_2.extend(_3.xmpp.xmppSession,{roster:[],chatRegister:[],_iqId:0,open:function(_5,_6,_7){
+_1.extend(_3.xmpp.xmppSession,{roster:[],chatRegister:[],_iqId:0,open:function(_5,_6,_7){
 if(!_5){
 throw new Error("User id cannot be null");
 }else{
@@ -63,6 +63,7 @@ case "chat":
 this.chatHandler(_b);
 break;
 case "normal":
+break;
 default:
 this.simpleMessageHandler(_b);
 }
@@ -154,12 +155,13 @@ case "thread":
 _12.chatid=n.firstChild.nodeValue;
 break;
 case "body":
-if(!n.getAttribute("xmlns")||(n.getAttribute("xmlns")=="")){
+if(!n.getAttribute("xmlns")||(n.getAttribute("xmlns")==="")){
 _12.body=n.firstChild.nodeValue;
 }
 break;
 case "subject":
 _12.subject=n.firstChild.nodeValue;
+break;
 case "html":
 if(n.getAttribute("xmlns")==_3.xmpp.xmpp.XHTML_IM_NS){
 _12.xhtml=n.getElementsByTagName("body")[0];
@@ -195,17 +197,17 @@ var _15=this.chatRegister[_14];
 _15.setState(_13);
 if(_15.firstMessage){
 if(_13==_3.xmpp.chat.ACTIVE_STATE){
-_15.useChatState=(_13!=null)?true:false;
+_15.useChatState=(_13!==null)?true:false;
 _15.firstMessage=false;
 }
 }
 }
-if((!_12.body||_12.body=="")&&!_12.xhtml){
+if((!_12.body||_12.body==="")&&!_12.xhtml){
 return;
 }
 if(_14>-1){
 var _15=this.chatRegister[_14];
-_15.recieveMessage(_12);
+_15.receiveMessage(_12);
 }else{
 var _16=new _3.xmpp.ChatService();
 _16.uid=this.getBareJid(_12.from);
@@ -221,7 +223,7 @@ this.registerChatInstance(_16,_12);
 _17.setSession(this);
 this.chatRegister.push(_17);
 this.onRegisterChatInstance(_17,_18);
-_17.recieveMessage(_18,true);
+_17.receiveMessage(_18,true);
 },iqSetHandler:function(msg){
 if(msg.hasChildNodes()){
 var fn=msg.firstChild;
@@ -240,6 +242,7 @@ break;
 var req={id:_19,to:to||this.domain,type:"result",from:this.jid+"/"+this.resource};
 this.dispatchPacket(_3.xmpp.util.createElement("iq",req,true));
 },rosterSetHandler:function(_1a){
+var r;
 for(var i=0;i<_1a.childNodes.length;i++){
 var n=_1a.childNodes[i];
 if(n.nodeName=="item"){
@@ -248,7 +251,7 @@ var _1c=-1;
 var _1d=null;
 var _1e=null;
 for(var x=0;x<this.roster.length;x++){
-var r=this.roster[x];
+r=this.roster[x];
 if(n.getAttribute("jid")==r.jid){
 _1b=true;
 if(n.getAttribute("subscription")=="remove"){
@@ -259,7 +262,7 @@ _1d.groups.push(r.groups[y]);
 this.roster.splice(x,1);
 _1c=_3.xmpp.roster.REMOVED;
 }else{
-_1e=_2.clone(r);
+_1e=_1.clone(r);
 var _1f=n.getAttribute("name");
 if(_1f){
 this.roster[x].name=_1f;
@@ -324,10 +327,10 @@ case "show":
 p[n.nodeName]=n.firstChild.nodeValue;
 break;
 case "priority":
-p.priority=parseInt(n.firstChild.nodeValue);
+p.priority=parseInt(n.firstChild.nodeValue,10);
 break;
 case "x":
-if(n.firstChild&&n.firstChild.firstChild&&n.firstChild.firstChild.nodeValue!=""){
+if(n.firstChild&&n.firstChild.firstChild&&n.firstChild.firstChild.nodeValue!==""){
 p.avatarHash=n.firstChild.firstChild.nodeValue;
 p.hasAvatar=true;
 }
